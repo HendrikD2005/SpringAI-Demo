@@ -13,8 +13,9 @@ const App = () => (
                     <IonTitle>SpringAI - Demo with Ollama</IonTitle>
                 </IonToolbar>
             </IonHeader>
-            <IonContent>
-            </IonContent>
+                <IonContent className="ion-padding">
+                    <h1>Chat</h1>
+                </IonContent>
             <IonFooter>
                 <IonToolbar>
                     <IonTitle>Version: </IonTitle>
