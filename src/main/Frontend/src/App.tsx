@@ -1,28 +1,23 @@
-import {IonApp, IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonFooter} from '@ionic/react';
-import '@ionic/react/css/core.css';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import ChatPage from './pages/ChatPage';
+import HistoryPage from './pages/HistoryPage';
+import MenuSidebar from './components/MenuSidebar';
+import { Box } from '@mui/material';
 
-import { setupIonicReact } from '@ionic/react';
-
-setupIonicReact();
-
-const App = () => (
-    <IonApp>
-        <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonTitle>SpringAI - Demo with Ollama</IonTitle>
-                </IonToolbar>
-            </IonHeader>
-                <IonContent className="ion-padding">
-                    <h1>Chat</h1>
-                </IonContent>
-            <IonFooter>
-                <IonToolbar>
-                    <IonTitle>Version: </IonTitle>
-                </IonToolbar>
-            </IonFooter>
-        </IonPage>
-    </IonApp>
-);
+function App() {
+    return (
+        <Box sx={{ display: 'flex' }}>
+            <MenuSidebar>
+                <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+                    <Routes>
+                        <Route path="/" element={<Navigate to="/chat" replace />} />
+                        <Route path="/chat" element={<ChatPage />} />
+                        <Route path="/history" element={<HistoryPage />} />
+                    </Routes>
+                </Box>
+            </MenuSidebar>
+        </Box>
+    );
+}
 
 export default App;
